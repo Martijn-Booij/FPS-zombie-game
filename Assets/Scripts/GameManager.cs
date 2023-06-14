@@ -13,10 +13,12 @@ public class GameManager : MonoBehaviour
     public Text roundText;                  // Tekstveld voor het weergeven van het huidige rondenummer
     public GameObject WinScreen;            // Het WinScreen-object
     public GameObject EndScreen;            // Het EndScreen-object
-    public Text RoundsSurvived;             // Tekstveld voor het weergeven van het aantal overleefde rondes
-    public Text ZombiesKilled;              // Tekstveld voor het weergeven van het aantal gedode zombies
-    public ZombieManager zombieManager;      // Verwijzing naar de ZombieManager-component
-    public int zombiesKilled;                // Het aantal gedode zombies
+    public Text RoundsSurvivedWinScreen;    // Tekstveld voor het weergeven van het aantal overleefde rondes in het WinScreen
+    public Text ZombiesKilledWinScreen;     // Tekstveld voor het weergeven van het aantal gedode zombies in het WinScreen
+    public Text RoundsSurvivedGameOver;     // Tekstveld voor het weergeven van het aantal overleefde rondes in het GameOverScreen
+    public Text ZombiesKilledGameOver;      // Tekstveld voor het weergeven van het aantal gedode zombies in het GameOverScreen
+    public ZombieManager zombieManager;     // Verwijzing naar de ZombieManager-component
+    public int zombiesKilled;               // Het aantal gedode zombies
 
     void Update()
     {
@@ -57,8 +59,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         WinScreen.SetActive(true);   // Activeer het WinScreen-object
-        RoundsSurvived.text = "Rounds Survived: " + round.ToString();   // Toon het aantal overleefde rondes
-        ZombiesKilled.text = "Zombies Killed: " + zombiesKilled.ToString();   // Toon het aantal gedode zombies
+        RoundsSurvivedWinScreen.text = "Rounds Survived: " + round.ToString();   // Toon het aantal overleefde rondes
+        ZombiesKilledWinScreen.text = "Zombies Killed: " + zombiesKilled.ToString();   // Toon het aantal gedode zombies
     }
 
     public void EndGame()
@@ -66,7 +68,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         EndScreen.SetActive(true);   // Activeer het EndScreen-object
-        RoundsSurvived.text = "Rounds Survived: " + round.ToString();   // Toon het aantal overleefde rondes
-        ZombiesKilled.text = "Zombies Killed: " + zombiesKilled.ToString();   // Toon het aantal gedode zombies
+        RoundsSurvivedGameOver.text = "Rounds Survived: " + round.ToString();   // Toon het aantal overleefde rondes
+        ZombiesKilledGameOver.text = "Zombies Killed: " + zombiesKilled.ToString();   // Toon het aantal gedode zombies
     }
 }
